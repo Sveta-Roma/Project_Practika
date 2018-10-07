@@ -4,7 +4,8 @@ import org.itstep.qa.lesson_two.zadanie.Bush;
 
 public class RunnerBush {
     public static void main(String[] args) {
-        
+
+
         Bush bush_1 = new Bush(1,2,"Зеленый");
         Bush bush_2 = new Bush(45,21,"Салатовый");
         Bush bush_3 = new Bush(84,91,"Розовый");
