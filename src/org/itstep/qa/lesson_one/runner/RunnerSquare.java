@@ -1,6 +1,6 @@
-package org.itstep.qa.runner;
+package org.itstep.qa.lesson_one.runner;
 
-import org.itstep.qa.zadania.Square;
+import org.itstep.qa.lesson_one.zadanie.Square;
 
 public class RunnerSquare {
     public static void main(String[] args) {

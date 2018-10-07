@@ -1,6 +1,4 @@
-package org.itstep.qa.zadania;
-
-import java.util.Random;
+package org.itstep.qa.lesson_one.zadanie;
 
 public class Drum {
     /*Создать класс, которые реализует модель барабана из Поля Чудес

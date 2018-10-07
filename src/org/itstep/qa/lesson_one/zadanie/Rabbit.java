@@ -1,4 +1,4 @@
-package org.itstep.qa.zadania;
+package org.itstep.qa.lesson_one.zadanie;
 
 public class Rabbit {
     /*Создать класс, моделирующий поведение зайца. Зайца характеризуют:

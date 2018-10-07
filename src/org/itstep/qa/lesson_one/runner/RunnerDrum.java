@@ -1,6 +1,6 @@
-package org.itstep.qa.runner;
+package org.itstep.qa.lesson_one.runner;
 
-import org.itstep.qa.zadania.Drum;
+import org.itstep.qa.lesson_one.zadanie.Drum;
 
 public class RunnerDrum {
     public static void main(String[] args) {

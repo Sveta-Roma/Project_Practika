@@ -1,4 +1,4 @@
-package org.itstep.qa.zadania;
+package org.itstep.qa.lesson_one.zadanie;
 
 public class House {
     /*Создать класс описывающий дом. Дом характеризуется расположением (широта и долгота) и названием (шалаш, котэдж и т.д.)
