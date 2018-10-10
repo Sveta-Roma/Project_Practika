@@ -61,7 +61,7 @@ public class Rabbit {
     }
 
     public void newPlaceRabbit(int a1, int b1) {
-        this.a = a1;
-        this.b = b1;
+        this.x = this.a = a1;
+        this.y = this.b = b1;
     }
 }

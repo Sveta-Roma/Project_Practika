@@ -1,5 +1,8 @@
 package org.itstep.qa.lesson_one.zadanie;
 
+import java.util.Arrays;
+import java.util.Random;
+
 public class Drum {
     /*Создать класс, которые реализует модель барабана из Поля Чудес
      Класс хранит диапазон из 10 значений (100, 500, 750 и т.д.) которые инициализируются в момент создания экземпляра барабана
@@ -14,17 +17,12 @@ public class Drum {
         this.numbers = numbers;
     }
 
-    public void getDrumValuesList(int[] numbers){
-        for(int i = 0; i < numbers.length; i++){
-            System.out.println(numbers[i] + " ");
-        }
+    public void getDrumValuesList(){
+        System.out.println("Содержащиеся значения: " + Arrays.toString(numbers));
     }
 
-    /*public int getRandomValues(){
-        int result;
+    public int runDrum(){
         Random random = new Random();
-        result = random.nextInt();
-      return result;
+        return numbers[random.nextInt(numbers.length-1)];
     }
-    */
 }

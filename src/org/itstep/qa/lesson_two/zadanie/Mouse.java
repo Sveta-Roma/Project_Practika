@@ -1,5 +1,7 @@
 package org.itstep.qa.lesson_two.zadanie;
 
+import java.util.Random;
+
 public class Mouse {
     /*Игровое поле ограничено размерами 100х100 (координаты по х и у от 0 до 99)
       На игровом поле будет бегать мышь. Мышь характеризуют:
@@ -23,6 +25,8 @@ public class Mouse {
      командную строку выводится запись вида "Победила мышь Апокалиптина, она нашла куст в координатах ХХ:УУ и
      перекрасилась в цвет Баклажановый""
     */
+    private final int FORCE_WIND = 2;
+
     private int a;
     private int b;
     private int x;
@@ -30,37 +34,72 @@ public class Mouse {
     private String name;
     private String color;
 
-    public Mouse(int a, int b, String name) {
+    private int dXRun;
+    private int dYRun;
+
+    private int dXDig;
+    private int dYDig;
+
+    private int sizeField;
+
+    public Mouse(int a, int b, String name, int sizeField) {
         this.a = a;
         this.b = b;
+        this.x = a;
+        this.y = b;
         this.name = name;
         this.color = "Белая";
+        dXRun = 1;
+        dYRun = 1;
+        dXDig = 5;
+        dYDig = 5;
+        this.sizeField = sizeField;
     }
 
-    public Mouse(int x, int y) {
-        this.x = x;
-        this.y = y;
+    public int getX() {
+        return x;
     }
 
-    //Random random = new Random();
-    //int dx = random.nextInt();
-    //int dy = random.nextInt();
-    public void mouseToRun (int dx, int dy){
-        this.x = x + 1 + dx;
-        this.y = y + 1 + dy;
+    public int getY() {
+        return y;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void mouseToRun (){
+        Random random = new Random();
+        int windX = random.nextInt(FORCE_WIND);
+        int windY = random.nextInt(FORCE_WIND);
+        dXRun = controlMouse(x, dXRun, windX*dXRun);
+        dYRun = controlMouse(y, dYRun, windY*dYRun);
+        x  = x + dXRun + windX*dXRun;
+        y  = y + dYRun + windY*dYRun;
+    }
 
     public void toDigTunnelMouse(){
-        this.x = x + 5;
-        this.y = y + 5;
+        dXDig = controlMouse(x, dXDig, 0);
+        dYDig = controlMouse(y, dYDig, 0);
+        x = x + dXDig;
+        y = y + dYDig;
     }
 
-    public void toGame(int dx, int dy){
-        if (x >= 99 || x <= 0){
-            this.x = x + 1 - dx;
-        }else if (y >= 99 || y <= 0){
-            this.y = y + 1 - dy;
-        }
+    private int controlMouse (int current, int d, int wind){ // параметры: текущая координата и приращение,
+                                            // нужен этот метод для того чтобы проверить не выбежила ли мышь за пределы
+        Random random = new Random();
+        int temp = current + d + wind;
+        if (temp >= sizeField || temp < 0){
+                d = -d;
+            }
+        return d;
     }
 }
